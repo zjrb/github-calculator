@@ -1,6 +1,5 @@
 
 class Calculator {
-    // comment
 
     Calculator() {
 
