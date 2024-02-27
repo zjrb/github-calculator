@@ -1,37 +1,43 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-
-        String command = args[0];
-        int[] numbers = Arrays.stream(args).skip(1).mapToInt(Integer::parseInt).toArray();
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("welcome to the calulator");
         while (true) {
-            switch (command) {
-                case "add":
-                    System.out.println(calculator.add(numbers[0], numbers[1]));
-                    break;
-                case "subtract":
-                    System.out.println(calculator.subtract(numbers[0], numbers[1]));
-                    break;
-                case "multiply":
-                    System.out.println(calculator.multiply(numbers[0], numbers[1]));
-                    break;
-                case "divide":
-                    System.out.println(calculator.divide(numbers[0], numbers[1]));
-                    break;
-                case "fibonacciNumberFinder":
-                    System.out.println(calculator.fibonacciNumberFinder(numbers[0]));
-                    break;
-                case "intToBinaryNumber":
-                    System.out.println(calculator.intToBinaryNumber(numbers[0]));
-                    break;
-                default:
-                    System.out.println("Invalid command.");
-                    return;
+            System.out.print("Enter a command: ");
+            String command = scanner.nextLine();
+
+            if (command.isEmpty()) {
+                break;
             }
 
+            int[] numbers = Arrays.stream(command.split(" ")).mapToInt(Integer::parseInt).toArray();
+
+            switch (numbers[0]) {
+                case 1:
+                    System.out.println(calculator.add(numbers[1], numbers[2]));
+                    break;
+                case 2:
+                    System.out.println(calculator.subtract(numbers[1], numbers[2]));
+                    break;
+                case 3:
+                    System.out.println(calculator.multiply(numbers[1], numbers[2]));
+                    break;
+                case 4:
+                    System.out.println(calculator.divide(numbers[1], numbers[2]));
+                    break;
+                case 5:
+                    System.out.println(calculator.fibonacciNumberFinder(numbers[1]));
+                    break;
+                case 6:
+                    System.out.println(calculator.intToBinaryNumber(numbers[1]));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
