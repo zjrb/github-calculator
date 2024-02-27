@@ -3,11 +3,6 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        if (args.length < 2) {
-
-            System.out.println("Invalid input. Please provide a command and input numbers.");
-            return;
-        }
 
         String command = args[0];
         int[] numbers = Arrays.stream(args).skip(1).mapToInt(Integer::parseInt).toArray();
